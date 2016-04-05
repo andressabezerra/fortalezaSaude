@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fortaleza Saúde</title>
+                <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="/images/iconTop.png" rel="icon" type="image/x-icon" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75758435-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+	</head>
+
+	<body class="landing">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">Fortaleza Saúde</a></h1>
+						<nav id="nav">
+							<ul>
+							<!--	<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="generic.html">Generic</a></li>
+											<li><a href="elements.html">Elements</a></li>
+											<li><a href="#">Sign Up</a></li>
+											<li><a href="#">Log In</a></li>
+										</ul>
+									</div>
+								</li> -->
+							</ul>
+						</nav>
+					</header>
+
+			
+<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>Fortaleza Saúde</h2>
+							<ul class="actions">
+								<li><a href="#one" class="button special">Comece Agora</a></li>
+							</ul>
+				
+					</section>
+
+
+				<!-- One -->
+					<section id="one" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Mapa do Combate ao Aedes Aegypti em Fortaleza<br />
+			</h2>
+								<p>Acompanhe no mapa abaixo os focos do mosquito  em sua cidade , os eventos de combate e os locais seguros.<br />
+								As informações divulgadas são atualizadas diariamente. Caso queira contribuir fornecenedo novas informações ou atualizando informações existentes, basta seguir as instruções apresentadas abaixo do mapa.</br>
+                                                                É importante também mencionar que, ao indicar um local como zona de possível presença do mosquito, a intenção é atrair a atenção dos orgãos competentes e da população para a melhoria daquele local.</br>
+                                                                Queremos uma cidade completamente livre do mosquito.</p>
+
+<div id="map" align="center" style="width:1040px; height:520px"> 
+
+<!-- FALTA FAZER O SCRIPT PRA PEGAR MARKERS DO ARQUIVO .KML -->
+
+ <script>
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -3.7572834, lng: -38.547963},
+    zoom: 12
+  });
+
+
+  var perigo = 'images/perigo.png';
+  var seguro = 'images/seguro.png';
+  var evento = 'images/evento.png';
+
+
+
+ var contentString = '<img src="dengue.jpg" ></br><b><font color="#000000" Local Seguro</b></br>Esse local foi marcado como uma zona livre do mosquito aedes aegypti. </br>Informado por: @Andressa Bezerra </font>';
+ var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+ marker = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat: -3.7572834, lng: -38.547963},
+    icon: seguro,
+    size: new google.maps.Size(10, 16)
+  });
+  marker.addListener('click', toggleBounce);
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+
+
+
+ var contentString2 = '<img src="dengue.jpg" ></br><b><font color="#000000" Local Seguro</b></br>Esse local foi marcado como uma zona livre do mosquito aedes aegypti. </br>Informado por: @Kenia Edjane</font>';
+ var infowindow2 = new google.maps.InfoWindow({
+    content: contentString2
+  });
+ marker2 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat: -3.7234497, lng:  -38.5089375},
+    icon: seguro,
+    size: new google.maps.Size(10, 16)
+  });
+  marker2.addListener('click', toggleBounce2);
+  marker2.addListener('click', function() {
+    infowindow2.open(map, marker2);
+  });
+function toggleBounce2() {
+  if (marker2.getAnimation() !== null) {
+    marker2.setAnimation(null);
+  } else {
+    marker2.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+
+
+
+ var contentString3 = '<img src="dengue.jpg" ></br><b><font color="#000000" Evento</b></br>Evento contra o mosquito aedes aegypti. </br>Informado por: http://agenciabrasil.ebc.com.br/geral/noticia/2016-01/mutirao-contra-aedes-aegypti-em-fortaleza-envolve-agentes-de-endemias-e </font>';
+ var infowindow3 = new google.maps.InfoWindow({
+    content: contentString3
+  });
+ marker3 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat:  -3.7659933, lng:   -38.4410721},
+    icon: evento,
+    size: new google.maps.Size(10, 16)
+  });
+  marker3.addListener('click', toggleBounce3);
+  marker3.addListener('click', function() {
+    infowindow3.open(map, marker3);
+  });
+function toggleBounce3() {
+  if (marker3.getAnimation() !== null) {
+    marker3.setAnimation(null);
+  } else {
+    marker3.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+
+
+ var contentString4 = '<img src="dengue.jpg" ></br><b><font color="#000000" Evento</b></br>Evento contra o mosquito aedes aegypti. </br>Informado por: http://www.ceara.gov.br/sala-de-imprensa/noticias/16101-estudantes-do-vicente-pinzon-realizam-passeata-contra-o-mosquito-aedes-aegypti </font>';
+ var infowindow4 = new google.maps.InfoWindow({
+    content: contentString4
+  });
+ marker4 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat:  -3.7269077, lng:   -38.4695582},
+    icon: evento,
+    size: new google.maps.Size(10, 16)
+  });
+  marker4.addListener('click', toggleBounce4);
+  marker4.addListener('click', function() {
+    infowindow4.open(map, marker4);
+  });
+function toggleBounce4() {
+  if (marker4.getAnimation() !== null) {
+    marker4.setAnimation(null);
+  } else {
+    marker4.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+
+var contentString5 = '<img src="dengue.jpg" ></br><b><font color="#000000" Possibilidade de Foco do Mosquito</b></br>Locais nessas proximidades foram marcados como uma zona de possibilidade do mosquito aedes aegypti. </br>Informado por:http://www.opovo.com.br/app/fortaleza/2016/02/16/noticiafortaleza,3575567/servidora-denuncia-possiveis-focos-de-aedes-aegypti-em-predio-da-amc.shtml </font>';
+ var infowindow5 = new google.maps.InfoWindow({
+    content: contentString5
+  });
+ marker5 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat:   -3.7999277, lng: -38.4983224},
+    icon: perigo,
+    size: new google.maps.Size(10, 16)
+  });
+  marker5.addListener('click', toggleBounce5);
+  marker5.addListener('click', function() {
+    infowindow5.open(map, marker5);
+  });
+function toggleBounce5() {
+  if (marker5.getAnimation() !== null) {
+    marker5.setAnimation(null);
+  } else {
+    marker5.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+
+var contentString6 = '<img src="dengue.jpg" ></br><b><font color="#000000" Possibilidade de Foco do Mosquito</b></br>Locais nessas proximidades foram marcados como uma zona de possibilidade do mosquito aedes aegypti. </br>Informado por:http://cnews.com.br/cnews/noticias/96004/veiculos_apreendidos_se_tornam_foco_do_aedes_aegypti</font>';
+ var infowindow6 = new google.maps.InfoWindow({
+    content: contentString6
+  });
+ marker6 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat:   -3.7689448, lng:  -38.6045901},
+    icon: perigo,
+    size: new google.maps.Size(10, 16)
+  });
+  marker6.addListener('click', toggleBounce6);
+  marker6.addListener('click', function() {
+    infowindow6.open(map, marker6);
+  });
+function toggleBounce6() {
+  if (marker6.getAnimation() !== null) {
+    marker6.setAnimation(null);
+  } else {
+    marker6.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+
+var contentString7 = '<img src="dengue.jpg" ></br><b><font color="#000000" Evento</b></br>Evento contra o mosquito aedes aegypti. </br>Informado por: http://agenciabrasil.ebc.com.br/geral/noticia/2016-03/instituto-federal-de-educacao-mobiliza-10-campi-no-combate-ao-aedes-no-ceara</font>';
+ var infowindow7 = new google.maps.InfoWindow({
+    content: contentString7
+  });
+ marker7 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat:   -3.7444156, lng:  -38.5360463},
+    icon: evento,
+    size: new google.maps.Size(10, 16)
+  });
+  marker7.addListener('click', toggleBounce7);
+  marker7.addListener('click', function() {
+    infowindow7.open(map, marker7);
+  });
+function toggleBounce7() {
+  if (marker7.getAnimation() !== null) {
+    marker7.setAnimation(null);
+  } else {
+    marker7.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+
+var contentString8 = '<img src="dengue.jpg" ></br><b><font color="#000000" Evento</b></br>Evento contra o mosquito aedes aegypti. </br>Informado por:http://agenciabrasil.ebc.com.br/educacao/noticia/2016-02/escolas-do-ceara-terao-gincanas-para-incentivar-combate-ao-aedes-aegypti </font>';
+ var infowindow8 = new google.maps.InfoWindow({
+    content: contentString8
+  });
+ marker8 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat:   -3.8005207, lng:   -38.5612033},
+    icon: evento,
+    size: new google.maps.Size(10, 16)
+  });
+  marker8.addListener('click', toggleBounce8);
+  marker8.addListener('click', function() {
+    infowindow8.open(map, marker8);
+  });
+function toggleBounce8() {
+  if (marker8.getAnimation() !== null) {
+    marker8.setAnimation(null);
+  } else {
+    marker8.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+var contentString9 = '<img src="dengue.jpg" ></br><b><font color="#000000" Possibilidade de Foco do Mosquito</b></br>Locais nessas proximidades foram marcados como uma zona de possibilidade do mosquito aedes aegypti. </br>Informado por:http://g1.globo.com/ceara/noticia/2016/02/obra-parada-no-aeroporto-de-fortaleza-vira-criadouro-do-aedes-aegypti.html </font>';
+ var infowindow9 = new google.maps.InfoWindow({
+    content: contentString9
+  });
+ marker9 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat:    -3.7785647, lng:   -38.5406043},
+    icon: perigo,
+    size: new google.maps.Size(10, 16)
+  });
+  marker9.addListener('click', toggleBounce9);
+  marker9.addListener('click', function() {
+    infowindow9.open(map, marker9);
+  });
+function toggleBounce9() {
+  if (marker9.getAnimation() !== null) {
+    marker9.setAnimation(null);
+  } else {
+    marker9.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+ var contentString10 = '<img src="dengue.jpg" ></br><b><font color="#000000" Evento</b></br>Evento contra o mosquito aedes aegypti. </br>Informado por: https://cearapopmarketing.wordpress.com/2016/02/22/mrv-engenharia-promove-acoes-de-combate-ao-aedes-aegypti-em-todos-os-seus-canteiros-de-obras/ </font>';
+ var infowindow10 = new google.maps.InfoWindow({
+    content: contentString10
+  });
+ marker10 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat:  -3.776735, lng: -38.513148},
+    icon: evento,
+    size: new google.maps.Size(10, 16)
+  });
+  marker10.addListener('click', toggleBounce10);
+  marker10.addListener('click', function() {
+    infowindow10.open(map, marker10);
+  });
+function toggleBounce10() {
+  if (marker10.getAnimation() !== null) {
+    marker10.setAnimation(null);
+  } else {
+    marker10.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+var contentString11 = '<img src="dengue.jpg" ></br><b><font color="#000000" Possibilidade de Foco do Mosquito</b></br>Locais nessas proximidades foram marcados como uma zona de possibilidade do mosquito aedes aegypti. </br>Informado por:http://g1.globo.com/ceara/noticia/2015/12/fortaleza-tem-116-mil-imoveis-com-risco-de-infestacao-de-aedes-aegypti.html </font>';
+ var infowindow11 = new google.maps.InfoWindow({
+    content: contentString11
+  });
+ marker11 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat: -3.7940854, lng:   -38.4786981},
+    icon: perigo,
+    size: new google.maps.Size(10, 16)
+  });
+  marker11.addListener('click', toggleBounce11);
+  marker11.addListener('click', function() {
+    infowindow11.open(map, marker11);
+  });}
+function toggleBounce11() {
+  if (marker11.getAnimation() !== null) {
+    marker11.setAnimation(null);
+  } else {
+    marker11.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYwYSjprjjdffSG4AfaChe7CO1L6krKtg&callback=initMap"
+        async defer></script>
+
+							</header>
+												</div>
+
+<div class="inner">
+							<header class="major">
+								<h2>Quero contribuir enviando informações sobre um local ou evento<br />
+			</h2>
+
+
+Para contribuir atualizando informações presentes no mapa ou divulgando novas informações basta </br>
+enviar um email para fortalezasaude@gmail.com informando o endereço do local a ser destacado no mapa e indicando se é um zona segura, de perigo ou local de um evento.</br>
+Caso tenha algum comentário que considere pertinente a população em geral e importante para o mapa, envie-o também. </br>
+Lembre de indicar se quer o seu nome associado ao marcador ou se deseja fazer uma contribuição anônima.</br>
+A sua contribuição estará disponível no mapa em até 24h.
+
+</br></br>
+
+<ul class="actions">
+								<li><a href="index.html" class="button special">Retornar para a Página Inicial</a></li>
+							</ul>
+
+
+					</section>
+
+			<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+								<h2>Gostou? Compartilhe sua experiência e faça da sua cidade um local ainda mais saudável.</h2>
+								<p>Compartilhe em suas redes sociais o Fortaleza Saúde e aumente o engajamento da população no combate ao mosquito aedes aegypti.</p>
+							</header>
+							<ul class="actions vertical">
+															<li><a href="http://facebook.com"  target="_blank" class="button fit">via Facebook</a></li>
+
+	<li><a href="http://twitter.com"  target="_blank"  class="button fit">via Twitter</a></li>
+
+	
+
+							</ul>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+<ul class="copyright">
+							<li>Estamos em versão beta - versão ainda em fase de desenvolvimento e teste.</br></li>
+						</ul>
+
+						<ul class="copyright">
+							<li>&copy 2016-2017 Andressa Bezerra</li><li>Design: <a href="http://andressabezerra.github.io">Andressa Bezerra</a>, Mouse Rat e HTML5 UP</li> 
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
